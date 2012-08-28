@@ -1,9 +1,15 @@
+# vim:fileencoding=utf-8
 class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
     @notes = Note.all
-
+    logger.unknown '不明なエラーです'
+    logger.fatal '致命的なエラーです'
+    logger.error 'エラーです'
+    logger.warn 'ワーニングです'
+    logger.info '一般情報です'
+    logger.debug 'デバッグ情報です'
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @notes }
