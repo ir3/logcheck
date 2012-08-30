@@ -20,6 +20,8 @@ class NotesController < ApplicationController
   # GET /notes/1.json
   def show
     @note = Note.find(params[:id])
+    log_text = '[show    ]' + long_text()
+    logger.info log_text
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,6 +32,8 @@ class NotesController < ApplicationController
   # GET /notes/new
   # GET /notes/new.json
   def new
+    log_text = '[new     ]' + long_text('ja')
+    logger.info log_text
     @note = Note.new
 
     respond_to do |format|
